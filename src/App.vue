@@ -1,14 +1,21 @@
 <template>
 	<div id="app">
-		<h1>黑马头条</h1>
-		<van-button type="primary">主要按钮</van-button>
-		<router-view />
+		<keep-alive :include="x_cachePage">
+			<router-view />
+		</keep-alive>
 	</div>
 </template>
 
 <script>
+	import {
+		mapState
+	} from 'vuex'
+
 	export default {
-		name: 'App'
+		name: 'App',
+		computed: {
+			...mapState(['x_cachePage'])
+		}
 	}
 </script>
 
